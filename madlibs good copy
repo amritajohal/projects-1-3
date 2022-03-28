@@ -1,0 +1,54 @@
+#here we are using a global variable to make the function ask() relevant to the next code
+#otherwise it wont 'transfer' over to the def stories(): sections below
+def ask():
+    global adj, verb, verb_ing, noun, plurnoun, place, bodypart, number
+    adj = input('adjective: ') 
+    verb = input('verb: ') 
+    verb_ing = input('verb (-ing): ') 
+    noun = input('noun: ')
+    plurnoun = input('plural noun: ') 
+    place = input('place: ') 
+    bodypart = input('body part: ') 
+    number = input('number: ')# all the variables are defined now(once it has been called)
+#now we can call the ask() function so that the user can fill in the responses 
+# first version of the story 
+def story1():
+    ask()
+    story = f"i had a {adj} day at {place}. i wanted to {verb} with {number} {plurnoun} but i couldnt. then we started {verb_ing} my moms antique {noun}."
+    print(story)
+# second version of the story    
+def story2():
+    ask()
+    story = f'i want a {adj} {noun} so that i can take it {verb_ing} in {place}. it hurts my {bodypart} to think about how much i want to {verb} {number} times. i guess i can just get some {plurnoun} or smt instead.'
+    print(story) 
+
+# third version of the story 
+def story3():
+    ask()
+    story = f'there was once a {adj} {noun} from {place}. he loved {verb_ing} with his {bodypart}. one day, he wanted to {verb} {number} {plurnoun}, so he did.'
+    print(story)   
+
+#decides which story/quit/try again, then prints that story with the filled in mad lib   
+while True:
+        choice = input('which story would u like to play (1-3, or q to quit)?: ')
+        #based off the answer, the if/elif/else statement will apply 
+        #should print the correct story # with users answers filled in 
+        if choice == '1':
+            story1()
+            break 
+        
+        elif choice == '2':
+            story2()
+            break 
+        
+        elif choice == '3':
+            story3()
+            break
+    
+        elif choice == 'q':
+            print('you have quit :-)')
+            break
+        #nothing else works, must be invalid 
+        else:
+            print('try again pls ._.') 
+            continue 
